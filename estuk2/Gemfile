@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.6' gem 'rails', '4.1.0.rc2'
+gem 'rack-cache'
+gem 'nokogiri', '~> 1.6.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -37,10 +39,22 @@ group :development, :test do
   gem 'byebug'
 end
 
+group :assets do
+	gem 'saas-rails', '~>3.2.3'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 end
+
+git 'https://github.com/rails/rails.git' do
+  gem 'railties'
+  gem 'action_pack'
+  gem 'active_model'
+end
+
+gem 'deep_merge', '1.0', :git => 'https://github.com/peritor/deep_merge.git'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
